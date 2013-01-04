@@ -38,8 +38,9 @@ def monitor_loop(args, pw, tenki, f, sock):
         if tenki:
             tres = map(tenki.get_temp, a.temp)
             avgtdata.append(tres)
+
     #    map)(tenki.get_temp, a.temp)
-    #   f.write(str([time.strftime('%Y-%m-%d %H:%M:%S'), pres, tres])+'\n')
+        f.write(str([time.strftime('%Y-%m-%d %H:%M:%S'), pres, tres])+'\n')
 
         lines = []
         if (time.time() - avgtime > args.avg):
@@ -136,7 +137,8 @@ if (a.outf != 'stdout'):
     f = open(a.outf, 'w')
 else:
     f = sys.stdout
-    monitor_loop(a, pw, tenki, f, sock)
+monitor_loop(a, pw, tenki, f, sock)
 print "Stopping"
 f.close()
-sock.close()
+if sock:
+    sock.close()
