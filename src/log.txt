@@ -1,0 +1,17 @@
+/home/rlaakkol/dev/database/workspace/PowerTemp/src/sensor_api/pwcircles.py:73: Warning: Data truncated for column 'reading' at row 1
+  (%s,%s,%s)""", (sensor_id, timestamp, pow))
+Address of carbon server: 10.11.0.180
+Traceback (most recent call last):
+  File "/usr/bin/pwmonitor", line 132, in <module>
+    monitor_loop(a, pw, tenki, f, sock)
+  File "/usr/bin/pwmonitor", line 39, in monitor_loop
+    tres = map(tenki.get_temp, a.temp)
+  File "/home/rlaakkol/dev/database/workspace/PowerTemp/src/sensor_api/tenkisensors.py", line 89, in get_temp
+    if self.temp_to_db(name, temp, hum):
+  File "/home/rlaakkol/dev/database/workspace/PowerTemp/src/sensor_api/tenkisensors.py", line 77, in temp_to_db
+    if (self.cursor.execute("""SELECT id FROM sensors_tempsensor WHERE type=%s AND location=%s""", (TYPE, name,)) != 0):
+  File "/usr/lib/pymodules/python2.7/MySQLdb/cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib/pymodules/python2.7/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.OperationalError: (2013, 'Lost connection to MySQL server during query')
