@@ -116,6 +116,8 @@ if (a.car != None):
         sock.connect( (a.car,CARBON_PORT) )
     except:
         print "Couldn't connect to %(server)s on port %(port)d, is carbon-agent.py running?" % { 'server':a.car, 'port':CARBON_PORT }
+else:
+    sock = None
 
 
 if tenki:
